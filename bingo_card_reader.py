@@ -2,8 +2,16 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import webbrowser
 import csv
+import collections
 
-f = open("myfile.html", "w")
+def checkRows(array):
+    counter = 0
+    for x in range(5):
+        if (array[x][1] == 'Loss'):
+             break
+        else
+            counter += 1
+        
 
 with open("cards.csv", "r") as csvfile:
     
@@ -23,13 +31,12 @@ with open("cards.csv", "r") as csvfile:
             if (cell != None):
                 a = cell.text.strip().encode()
                 text = a.decode("utf-8")
-                array.append(str(text))
+                array.append([str(text), "Win"])
 
-        count = 1
-        for item in array:
-            print(item)
-            if (count % 5 == 0):
-                print("\n")
+        # for item in array:
+        #     # print(item)
+        #     count = 0
 
-            count = count + 1
+        checkRows(array)
+
 
